@@ -10,13 +10,17 @@
 # 
 # ----------------------------------------------------------------------
 import os
+import subprocess
 from konto import Konto
 
 konten = []
 
 # Hilfsfunktionen
 def konsole_leeren():
-    os.system("cls")
+    if os.name == 'nt':
+        subprocess.run(['cls'], shell=True)
+    else:
+        subprocess.run(['clear'])
 
 def konto_anlegen():
     name = input("Name: ")
